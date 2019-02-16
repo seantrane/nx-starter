@@ -1,0 +1,54 @@
+sudo: required
+language: node_js
+node_js:
+  - '8'
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+notifications:
+  email: false
+services:
+  - docker
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: seantrane-github
+git:
+  depth: false
+branches:
+  only:
+    - master
+    - /^release.*$/
+env:
+  global:
+    - PATH=$HOME/.local/bin:$PATH
+    - PATH=$PWD:$PATH
+before_install:
+  # package-lock.json was introduced in npm@5
+  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
+  - npm install -g github-label-sync typescript @angular/cli @nrwl/schematics
+  # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+install:
+  - travis_retry npm install
+stages:
+  - test
+  - name: deploy
+    if: repo = seantrane/nx-starter
+        AND type != pull_request
+        AND branch = master
+jobs:
+  include:
+    - stage: test
+      name: 'Checks and Tests'
+      script:
+        - '[[ $TRAVIS_BRANCH =~ ^release.*$ ]] && npm audit || echo "Skipping npm audit";'
+        - commitlint-travis
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/nx-starter
+        - xvfb-run npm run ci
+        # - xvfb-run npm run e2e -- --no-progress
+        - '[[ $TRAVIS_BRANCH = master ]] && sonar-scanner || echo "Skipping sonar-scanner";'
+    - stage: deploy
+      name: 'Publish and Release'
+      script: npm run semantic-release
