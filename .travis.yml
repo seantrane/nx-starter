@@ -54,7 +54,7 @@ jobs:
       script: npm run semantic-release
     - name: 'Deploy GitHub Pages'
       script:
-        - xvfb-run npm run build
+        - xvfb-run npm run build -- --base-href /nx-starter/
         - cp -af ./dist/apps/nxsweb/index.html ./dist/apps/nxsweb/404.html
       deploy: &pages
         provider: pages
