@@ -52,3 +52,19 @@ jobs:
     - stage: deploy
       name: 'Publish and Release'
       script: npm run semantic-release
+    - name: 'Deploy GitHub Pages'
+      script:
+        - xvfb-run npm run build
+        - cp -af ./dist/apps/nxsweb/index.html ./dist/apps/nxsweb/404.html
+      deploy: &pages
+        provider: pages
+        skip-cleanup: true
+        github-token: "$GH_TOKEN"
+        name: Sean Trane
+        email: seantrane@users.noreply.github.com
+        # keep-history: true
+        target-branch: gh-pages
+        local-dir: ./dist/apps/nxsweb
+        on:
+          repo: seantrane/nx-starter
+          branch: master
