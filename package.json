@@ -1,7 +1,7 @@
 {
   "name": "@seantrane/nx-starter",
   "description": "An Nx Workspace starter kit for managing Angular apps and their shared libraries.",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "author": "@seantrane",
   "license": "ISC",
   "homepage": "https://github.com/seantrane/nx-starter#readme",
