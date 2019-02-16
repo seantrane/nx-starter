@@ -1,0 +1,21 @@
+{
+  "npmScope": "seantrane",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "nxsweb": {
+      "tags": []
+    },
+    "nxsweb-e2e": {
+      "tags": []
+    },
+    "nxsui": {
+      "tags": []
+    }
+  }
+}
