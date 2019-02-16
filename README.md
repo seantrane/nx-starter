@@ -6,6 +6,8 @@
 
 [![Build Status](https://travis-ci.com/seantrane/nx-starter.svg?branch=master)](https://travis-ci.com/seantrane/nx-starter) [![Nx Workspace](https://img.shields.io/badge/monorepo-Nx%20Workspace-blue.svg)](https://nrwl.io/nx/guide-nx-workspace) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
+[![Code Coverage](https://sonarcloud.io/api/project_badges/measure?project=seantrane%3Anx-starter&metric=coverage)](https://sonarcloud.io/component_measures?id=seantrane%3Anx-starter&metric=coverage) [![Security, Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=seantrane%3Anx-starter&metric=security_rating)](https://sonarcloud.io/component_measures?id=seantrane%3Anx-starter&metric=Security) [![Reliability, Bugs](https://sonarcloud.io/api/project_badges/measure?project=seantrane%3Anx-starter&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=seantrane%3Anx-starter&metric=Reliability) [![Maintainability, Tech Debt, Code Smells](https://sonarcloud.io/api/project_badges/measure?project=seantrane%3Anx-starter&metric=sqale_rating)](https://sonarcloud.io/component_measures?id=seantrane%3Anx-starter&metric=Maintainability)
+
 ## Table of Contents
 
 - [About the Repository](#about)
